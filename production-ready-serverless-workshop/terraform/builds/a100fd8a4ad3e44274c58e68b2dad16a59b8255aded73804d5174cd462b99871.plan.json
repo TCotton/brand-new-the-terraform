@@ -1,0 +1,1 @@
+{"filename": "builds/a100fd8a4ad3e44274c58e68b2dad16a59b8255aded73804d5174cd462b99871.zip", "runtime": "nodejs20.x", "artifacts_dir": "builds", "build_plan": [[["zip", "../functions/get-index", null]]]}
