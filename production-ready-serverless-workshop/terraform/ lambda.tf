@@ -7,7 +7,7 @@ module "get_index_lambda" {
   runtime       = "nodejs20.x"
 
   source_path = [{
-    path = "${path.module}/../functions/get-index"
+    path = "${path.module}/../terraform/src/functions/get-index"
   }]
 
   environment_variables = {

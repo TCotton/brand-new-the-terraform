@@ -17,7 +17,6 @@ function loadHtml () {
 }
 
 const getRestaurants = async () => {
-    console.log(restaurantsApiRoot);
     const resp = await fetch(restaurantsApiRoot)
     return await resp.json()
 }
