@@ -1,36 +1,8 @@
 import fs from 'fs'
-import Mustache from 'mustache'
 
-import { config } from  'dotenv'
-
-config()
-
-const restaurantsApiRoot = process.env.restaurants_api
-const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-
-let html
-
-function loadHtml () {
-    if (!html) {
-        console.log('loading index.html...')
-        html = fs.readFileSync('static/index.html', 'utf-8')
-        console.log('loaded')
-    }
-
-    return html
-}
-
-const getRestaurants = async () => {
-    const resp = await fetch(restaurantsApiRoot)
-    return await resp.json()
-}
+const html = fs.readFileSync('static/index.html', 'utf-8')
 
 export const handler = async (event, context) => {
-    const template = loadHtml()
-    const restaurants = await getRestaurants()
-    console.log(restaurants);
-    const dayOfWeek = days[new Date().getDay()]
-    const html = Mustache.render(template, { dayOfWeek, restaurants })
     const response = {
         statusCode: 200,
         headers: {
