@@ -40,5 +40,5 @@ terraform.rc
 */node_modules/**
 node_modules/**
 production-ready-serverless-workshop/terraform/builds/*
-production-ready-serverless-workshop/.env
+.env
 production-ready-serverless-workshop/terraform/src/functions/get-restaurants/node_modules/**

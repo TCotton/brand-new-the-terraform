@@ -1,6 +1,10 @@
 import fs from 'fs'
 import Mustache from 'mustache'
 
+import { config } from  'dotenv'
+
+config()
+
 const restaurantsApiRoot = process.env.restaurants_api
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
