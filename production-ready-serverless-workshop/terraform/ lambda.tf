@@ -11,7 +11,6 @@ module "get_index_lambda" {
   }]
 
   environment_variables = {
-    restaurants_api = "https://${aws_api_gateway_rest_api.main.id}.execute-api.${var.aws_region}.amazonaws.com/${var.stage_name}/restaurants"
   }
 
   publish = true
