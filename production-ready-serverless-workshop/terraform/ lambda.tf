@@ -8,9 +8,15 @@ module "get_index_lambda" {
 
   source_path = [{
     path = "${path.module}/../terraform/src/functions/get-index"
+    commands = [
+      "rm -rf node_modules",
+      "npm ci --omit=dev",
+      ":zip"
+    ]
   }]
 
   environment_variables = {
+    restaurants_api = "https://${aws_api_gateway_rest_api.main.id}.execute-api.${var.aws_region}.amazonaws.com/${var.stage_name}/restaurants"
   }
 
   publish = true
@@ -24,6 +30,7 @@ module "get_index_lambda" {
 
   cloudwatch_logs_retention_in_days = 7
 }
+
 
 module "get_restaurants_lambda" {
   source  = "terraform-aws-modules/lambda/aws"
