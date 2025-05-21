@@ -11,5 +11,9 @@
   "description": "",
   "dependencies": {
     "mustache": "^4.2.0"
+  },
+  "devDependencies": {
+    "@aws-sdk/credential-providers": "^3.812.0",
+    "aws4fetch": "^1.0.20"
   }
 }

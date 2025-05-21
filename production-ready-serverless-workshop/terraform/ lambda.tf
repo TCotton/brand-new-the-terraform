@@ -19,6 +19,19 @@ module "get_index_lambda" {
     restaurants_api = "https://${aws_api_gateway_rest_api.main.id}.execute-api.${var.aws_region}.amazonaws.com/${var.stage_name}/restaurants"
   }
 
+  attach_policy_statements = true
+  policy_statements = {
+    dynamodb_read = {
+      effect = "Allow"
+      actions = [
+        "execute-api:Invoke"
+      ]
+      resources = [
+        "${aws_api_gateway_rest_api.main.execution_arn}/${var.stage_name}/GET/restaurants"
+      ]
+    }
+  }
+
   publish = true
 
   allowed_triggers = {
@@ -41,7 +54,7 @@ module "get_restaurants_lambda" {
   runtime       = "nodejs20.x"
 
   source_path = [{
-    path = "${path.module}/../terraform/src/functions/get-restaurants"
+    path = "${path.module}/../terraform/src/functions/get-restaurants",
   }]
 
   environment_variables = {

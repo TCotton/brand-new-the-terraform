@@ -52,7 +52,7 @@ resource "aws_api_gateway_method" "get_restaurants" {
   rest_api_id   = aws_api_gateway_rest_api.main.id
   resource_id   = aws_api_gateway_resource.restaurants.id
   http_method   = "GET"
-  authorization = "NONE"
+  authorization = "AWS_IAM"
 }
 
 resource "aws_api_gateway_integration" "get_restaurants" {
